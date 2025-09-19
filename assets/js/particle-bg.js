@@ -10,12 +10,12 @@ class ParticleBackground {
         
         // Оптимизированные настройки для SEO-сайта
         this.config = {
-            particleCount: 80, // Больше частиц для лучшей видимости
-            connectionDistance: 120,
-            particleRadius: 3,
-            lineOpacity: 0.4,
-            particleOpacity: 0.7,
-            animationSpeed: 0.02
+            particleCount: 60, // Меньше частиц
+            connectionDistance: 150, // Дальше соединения для больше линий
+            particleRadius: 3, // Средний размер частиц
+            lineOpacity: 0.8, // Высокая прозрачность линий
+            particleOpacity: 0.6, // Средняя прозрачность частиц
+            animationSpeed: 0.03 // Быстрее анимация
         };
         
         this.init();
@@ -159,16 +159,29 @@ class ParticleBackground {
     drawParticles() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         
-        // Рисуем частицы
-        this.points.forEach(point => {
+        // Рисуем частицы с эффектом пульсации
+        this.points.forEach((point, index) => {
             const distanceToMouse = this.getDistance(this.target, point);
             const opacity = Math.max(0, this.config.particleOpacity - distanceToMouse / 300);
             
             if (opacity > 0) {
-                        this.ctx.beginPath();
-                        this.ctx.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
-                        this.ctx.fillStyle = `rgba(45, 55, 72, ${opacity * 0.7})`;
-                        this.ctx.fill();
+                // Эффект пульсации
+                const pulse = Math.sin(Date.now() * 0.003 + index * 0.5) * 0.3 + 0.7;
+                const currentRadius = point.radius * pulse;
+                
+                this.ctx.beginPath();
+                this.ctx.arc(point.x, point.y, currentRadius, 0, Math.PI * 2);
+                this.ctx.fillStyle = `rgba(45, 55, 72, ${opacity * 0.6})`;
+                this.ctx.fill();
+                
+                // Добавляем внешний ореол для ближайших к курсору
+                if (distanceToMouse < 100) {
+                    this.ctx.beginPath();
+                    this.ctx.arc(point.x, point.y, currentRadius + 2, 0, Math.PI * 2);
+                    this.ctx.strokeStyle = `rgba(45, 55, 72, ${opacity * 0.3})`;
+                    this.ctx.lineWidth = 1;
+                    this.ctx.stroke();
+                }
             }
         });
     }
@@ -186,8 +199,8 @@ class ParticleBackground {
                         this.ctx.beginPath();
                         this.ctx.moveTo(this.points[i].x, this.points[i].y);
                         this.ctx.lineTo(this.points[j].x, this.points[j].y);
-                        this.ctx.strokeStyle = `rgba(45, 55, 72, ${opacity * 0.4})`;
-                        this.ctx.lineWidth = 1;
+                        this.ctx.strokeStyle = `rgba(45, 55, 72, ${opacity * 0.8})`;
+                        this.ctx.lineWidth = 2;
                         this.ctx.stroke();
                     }
                 }
@@ -205,8 +218,8 @@ class ParticleBackground {
                     this.ctx.beginPath();
                     this.ctx.moveTo(point.x, point.y);
                     this.ctx.lineTo(this.target.x, this.target.y);
-                    this.ctx.strokeStyle = `rgba(45, 55, 72, ${opacity * 0.5})`;
-                    this.ctx.lineWidth = 1;
+                    this.ctx.strokeStyle = `rgba(45, 55, 72, ${opacity * 0.9})`;
+                    this.ctx.lineWidth = 2.5;
                     this.ctx.stroke();
                 }
             }
