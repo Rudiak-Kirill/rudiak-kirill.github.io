@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Missing Icons</title>
+    <style>
+        canvas { border: 1px solid #ccc; margin: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Missing Icons Generator</h1>
+    <canvas id="canvas" width="64" height="64"></canvas>
+    <button onclick="generateIcons()">Generate Icons</button>
+    
+    <script>
+        function generateIcons() {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            const icons = [
+                { name: 'Yandex-Metrica', color: '#FF0000', text: 'Я' },
+                { name: 'Google-Analytics', color: '#4285F4', text: 'GA' },
+                { name: 'Google-Search-Console', color: '#34A853', text: 'GSC' },
+                { name: 'Screaming-Frog', color: '#4CAF50', text: 'SF' },
+                { name: 'PageSpeed-Insights', color: '#4285F4', text: 'PSI' }
+            ];
+            
+            icons.forEach(icon => {
+                // Create new canvas for each icon
+                const iconCanvas = document.createElement('canvas');
+                iconCanvas.width = 64;
+                iconCanvas.height = 64;
+                const iconCtx = iconCanvas.getContext('2d');
+                
+                // Draw background
+                iconCtx.fillStyle = icon.color;
+                iconCtx.fillRect(0, 0, 64, 64);
+                
+                // Draw text
+                iconCtx.fillStyle = 'white';
+                iconCtx.font = 'bold 20px Arial';
+                iconCtx.textAlign = 'center';
+                iconCtx.textBaseline = 'middle';
+                iconCtx.fillText(icon.text, 32, 32);
+                
+                // Convert to data URL and download
+                const dataURL = iconCanvas.toDataURL('image/png');
+                const link = document.createElement('a');
+                link.download = `${icon.name}.png`;
+                link.href = dataURL;
+                link.click();
+            });
+        }
+    </script>
+</body>
+</html>
