@@ -136,8 +136,10 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    padding: 1rem 2rem;
     flex-wrap: nowrap;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .brand-link {
@@ -173,7 +175,7 @@ a:hover {
 
 .nav-menu {
     display: flex;
-    gap: 1.2rem;
+    gap: 1.5rem;
     align-items: center;
     flex-shrink: 0;
 }
