@@ -783,19 +783,28 @@ a:hover {
 .features {
     list-style: none;
     margin-bottom: 2.5rem;
-    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
     flex-grow: 1;
 }
 
 .features li {
-    padding: 0.75rem 0;
-    border-bottom: 1px solid #f0f0f0;
-    color: #555;
-    font-size: 1rem;
+    padding: 0.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.5);
+    transition: all 0.2s ease;
+    min-width: 50px;
 }
 
-.features li:last-child {
-    border-bottom: none;
+.features li:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
 }
 
 /* Кнопки в карточках пакетов */
