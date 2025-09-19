@@ -550,9 +550,9 @@ a:hover {
     background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
 }
 
-.skills-grid {
+.tools-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
 }
@@ -616,6 +616,50 @@ a:hover {
     border-color: #2d3748;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(45, 55, 72, 0.2);
+}
+
+/* ===== NEW TOOL STYLES ===== */
+.tool-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(45, 55, 72, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(45, 55, 72, 0.05);
+}
+
+.tool-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(45, 55, 72, 0.15);
+}
+
+.tool-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    color: #4a5568;
+    transition: all 0.3s ease;
+}
+
+.tool-item:hover .tool-icon {
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+    color: white;
+}
+
+.tool-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2d3748;
+    text-align: center;
+    line-height: 1.3;
 }
 
 /* ===== PRICING SECTION ===== */
@@ -1121,12 +1165,56 @@ a:hover {
     margin-bottom: 1rem;
 }
 
-.footer-contact p {
+.footer-menu h4,
+.footer-social h4 {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.footer-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-menu li {
     margin-bottom: 0.5rem;
 }
 
-.footer-contact a {
-    color: #3498db;
+.footer-menu a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-menu a:hover {
+    color: #007cba;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: #007cba;
+    color: white;
+    transform: translateY(-2px);
 }
 
 .footer-links h4,
@@ -1176,6 +1264,16 @@ a:hover {
 
 .footer-bottom p {
     margin-bottom: 0.5rem;
+}
+
+.footer-bottom a {
+    color: #007cba;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: #3498db;
 }
 
 /* ===== АДАПТИВНОСТЬ ===== */
