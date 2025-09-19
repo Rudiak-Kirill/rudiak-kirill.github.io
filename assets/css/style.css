@@ -820,7 +820,6 @@ a:hover {
     color: #4a5568;
     margin-bottom: 1.5rem;
     line-height: 1.5;
-    font-style: italic;
 }
 
 .package-target {
@@ -833,6 +832,74 @@ a:hover {
     border-radius: 8px;
     border-left: 3px solid #007cba;
     font-weight: 500;
+}
+
+/* Иконки функций */
+.feature-icon {
+    display: inline-block;
+    width: 20px;
+    margin-right: 8px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Раскрывающийся блок */
+.expandable-details {
+    margin: 1rem 0;
+}
+
+.expand-btn {
+    background: none;
+    border: none;
+    color: #007cba;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s ease;
+}
+
+.expand-btn:hover {
+    color: #005a8b;
+}
+
+.expand-icon {
+    transition: transform 0.3s ease;
+    font-size: 0.8rem;
+}
+
+.expand-btn.expanded .expand-icon {
+    transform: rotate(180deg);
+}
+
+.details-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.details-content.expanded {
+    max-height: 500px;
+}
+
+.detailed-features {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+}
+
+.detailed-features li {
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+    color: #4a5568;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.detailed-features li:last-child {
+    border-bottom: none;
 }
 
 /* ===== CASES SECTION ===== */

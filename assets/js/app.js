@@ -553,6 +553,22 @@ document.addEventListener('click', (e) => {
 //     }
 // });
 
+// ===== РАСКРЫВАЮЩИЙСЯ БЛОК ДЕТАЛЕЙ =====
+function toggleDetails(button) {
+    const detailsContent = button.nextElementSibling;
+    const isExpanded = button.classList.contains('expanded');
+    
+    if (isExpanded) {
+        button.classList.remove('expanded');
+        detailsContent.classList.remove('expanded');
+        button.querySelector('.expand-text').textContent = 'Подробнее';
+    } else {
+        button.classList.add('expanded');
+        detailsContent.classList.add('expanded');
+        button.querySelector('.expand-text').textContent = 'Скрыть';
+    }
+}
+
 // ===== ОБРАБОТКА СКРОЛЛА ШАПКИ =====
 function initializeHeaderScroll() {
     const header = document.querySelector('.header');
