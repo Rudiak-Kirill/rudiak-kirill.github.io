@@ -295,6 +295,67 @@ a:hover {
 .hero-content {
     position: relative;
     z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.hero-greeting {
+    font-size: 1.2rem;
+    color: #4a5568;
+    margin: 0;
+    font-weight: 400;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: #4a5568;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-placeholder {
+    width: 300px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(45, 55, 72, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.photo-content {
+    text-align: center;
+    color: #4a5568;
+}
+
+.photo-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.photo-content p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
 }
 
 .hero::before {
@@ -317,9 +378,9 @@ a:hover {
     align-items: center;
 }
 
-.hero-content h1 {
+.hero-text h1 {
     font-size: 4.5rem;
-    margin-bottom: 1.5rem;
+    margin: 0;
     line-height: 1.1;
     font-weight: 900;
     background: linear-gradient(135deg, #2d3748 0%, #4a5568 50%, #718096 100%);
@@ -338,10 +399,10 @@ a:hover {
     line-height: 1.6;
 }
 
-.hero-stats {
+.hero-text .hero-stats {
     display: flex;
     gap: 3rem;
-    margin-bottom: 2.5rem;
+    margin: 0;
 }
 
 .stat {
@@ -364,21 +425,13 @@ a:hover {
     font-weight: 500;
 }
 
-.hero-cta {
+.hero-text .hero-cta {
     display: flex;
     gap: 1.5rem;
+    margin: 0;
 }
 
-.hero-image {
-    text-align: center;
-}
 
-.hero-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
 
 /* ===== EXPERIENCE SECTION ===== */
 .experience {
@@ -1171,19 +1224,25 @@ a:hover {
         padding: 100px 0 60px;
     }
     
-    .hero-content h1 {
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .hero-text h1 {
         font-size: 3rem;
     }
     
-    .hero-stats {
-        flex-direction: row;
-        gap: 2rem;
+    .hero-text .hero-stats {
         justify-content: center;
         flex-wrap: wrap;
     }
     
-    .stat-number {
-        font-size: 3rem;
+    .photo-placeholder {
+        width: 250px;
+        height: 320px;
+        margin: 0 auto;
     }
     
     .hero-cta {
