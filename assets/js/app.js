@@ -49,8 +49,10 @@ function initializeFAQ() {
 
 // ===== ВАЛИДАЦИЯ ФОРМЫ =====
 function initializeFormValidation() {
-    const contactForm = document.getElementById('contact-form');
-    if (!contactForm) return;
+    // Яндекс.Формы обрабатывают валидацию самостоятельно
+    // const contactForm = document.getElementById('contact-form');
+    // if (!contactForm) return;
+    return;
     
     // Валидация в реальном времени
     const inputs = contactForm.querySelectorAll('input, select, textarea');
@@ -283,8 +285,10 @@ function initializePackageSelection() {
 
 // ===== ОТПРАВКА ФОРМЫ =====
 function initializeFormSubmission() {
-    const form = document.getElementById('contact-form');
-    if (!form) return;
+    // Яндекс.Формы обрабатывают отправку самостоятельно
+    // const form = document.getElementById('contact-form');
+    // if (!form) return;
+    return;
     
     // Обработка ошибок из URL параметров
     const urlParams = new URLSearchParams(window.location.search);
@@ -540,14 +544,14 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Отслеживание отправки формы
-document.addEventListener('submit', (e) => {
-    if (e.target.id === 'contact-form') {
-        trackEvent('form_submit', {
-            form_type: 'contact'
-        });
-    }
-});
+// Отслеживание отправки формы (отключено для Яндекс.Форм)
+// document.addEventListener('submit', (e) => {
+//     if (e.target.id === 'contact-form') {
+//         trackEvent('form_submit', {
+//             form_type: 'contact'
+//         });
+//     }
+// });
 
 // ===== ОБРАБОТКА СКРОЛЛА ШАПКИ =====
 function initializeHeaderScroll() {
