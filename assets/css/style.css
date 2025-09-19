@@ -137,7 +137,7 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 0;
-    gap: 2rem;
+    gap: 1rem;
     flex-wrap: nowrap;
 }
 
@@ -173,7 +173,7 @@ a:hover {
 
 .nav-menu {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     align-items: center;
     flex-shrink: 0;
 }
@@ -297,15 +297,16 @@ a:hover {
     z-index: 2;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    min-height: 80vh;
+    gap: 3rem;
+    align-items: start;
+    min-height: 70vh;
+    padding-top: 2rem;
 }
 
 .hero-text {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .hero-greeting {
@@ -329,17 +330,17 @@ a:hover {
 }
 
 .photo-placeholder {
-    width: 300px;
-    height: 400px;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(20px);
-    border-radius: 20px;
+    width: 280px;
+    height: 350px;
+    background: white;
+    border-radius: 15px;
     box-shadow: 0 8px 32px rgba(45, 55, 72, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(45, 55, 72, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    margin-left: auto;
 }
 
 .photo-content {
@@ -379,15 +380,11 @@ a:hover {
 }
 
 .hero-text h1 {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
     margin: 0;
     line-height: 1.1;
     font-weight: 900;
-    background: linear-gradient(135deg, #2d3748 0%, #4a5568 50%, #718096 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    filter: drop-shadow(0 2px 4px rgba(45, 55, 72, 0.1));
+    color: #2d3748;
 }
 
 .hero-subtitle {
@@ -399,37 +396,6 @@ a:hover {
     line-height: 1.6;
 }
 
-.hero-text .hero-stats {
-    display: flex;
-    gap: 3rem;
-    margin: 0;
-}
-
-.stat {
-    text-align: center;
-}
-
-.stat-number {
-    display: block;
-    font-size: 3.5rem;
-    font-weight: 800;
-    line-height: 1;
-    margin-bottom: 0.5rem;
-    color: #2d3748;
-}
-
-.stat-label {
-    font-size: 1.1rem;
-    opacity: 1;
-    color: #4a5568;
-    font-weight: 500;
-}
-
-.hero-text .hero-cta {
-    display: flex;
-    gap: 1.5rem;
-    margin: 0;
-}
 
 
 
@@ -1231,17 +1197,12 @@ a:hover {
     }
     
     .hero-text h1 {
-        font-size: 3rem;
-    }
-    
-    .hero-text .hero-stats {
-        justify-content: center;
-        flex-wrap: wrap;
+        font-size: 2.5rem;
     }
     
     .photo-placeholder {
         width: 250px;
-        height: 320px;
+        height: 300px;
         margin: 0 auto;
     }
     
