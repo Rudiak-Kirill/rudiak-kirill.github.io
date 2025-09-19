@@ -444,7 +444,7 @@ a:hover {
 }
 
 .hero-text h1 {
-    font-size: 4rem;
+    font-size: 3.2rem;
     margin: 0;
     line-height: 1.1;
     font-weight: 900;
@@ -1336,7 +1336,7 @@ a:hover {
     }
     
     .hero-content h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
     
     .contact-content {
@@ -1439,7 +1439,7 @@ a:hover {
     }
     
     .hero-text h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
     
     .photo-container {
@@ -1514,7 +1514,7 @@ a:hover {
 
 @media (max-width: 480px) {
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     
     .hero-subtitle {
