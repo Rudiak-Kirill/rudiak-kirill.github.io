@@ -833,14 +833,15 @@ a:hover {
 
 .package-target {
     font-size: 0.85rem;
-    color: #007cba;
+    color: #6b7280;
     margin-top: 1rem;
     margin-bottom: 1.5rem;
-    padding: 0.75rem;
-    background: rgba(0, 124, 186, 0.1);
-    border-radius: 8px;
-    border-left: 3px solid #007cba;
-    font-weight: 500;
+    padding: 0.5rem;
+    background: rgba(107, 114, 128, 0.05);
+    border-radius: 6px;
+    border-left: 2px solid #9ca3af;
+    font-weight: 400;
+    opacity: 0.8;
 }
 
 /* Иконки функций */
@@ -860,7 +861,7 @@ a:hover {
 .expand-btn {
     background: none;
     border: none;
-    color: #007cba;
+    color: #6b7280;
     font-size: 0.9rem;
     font-weight: 500;
     cursor: pointer;
@@ -872,7 +873,7 @@ a:hover {
 }
 
 .expand-btn:hover {
-    color: #005a8b;
+    color: #4b5563;
 }
 
 .expand-icon {
