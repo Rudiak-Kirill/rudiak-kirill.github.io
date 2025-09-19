@@ -957,13 +957,14 @@ a:hover {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 4rem;
-    align-items: start;
+    align-items: stretch;
 }
 
 .case-claims {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    justify-content: center;
 }
 
 .claim-item {
