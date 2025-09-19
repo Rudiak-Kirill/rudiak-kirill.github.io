@@ -973,6 +973,32 @@ a:hover {
     font-weight: 500;
 }
 
+/* ===== QR CODE STYLES ===== */
+.qr-code-container {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.qr-code {
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(45, 55, 72, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    transition: transform 0.3s ease;
+}
+
+.qr-code:hover {
+    transform: scale(1.05);
+}
+
+.qr-text {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #4a5568;
+    font-weight: 400;
+}
+
 .contact-form {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(20px);
