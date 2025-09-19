@@ -569,6 +569,55 @@ function toggleDetails(button) {
     }
 }
 
+// ===== МОДАЛЬНОЕ ОКНО ДЛЯ ИЗОБРАЖЕНИЙ =====
+function openImageModal(img) {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    
+    modal.style.display = 'block';
+    modalImg.src = img.src;
+    modalImg.alt = img.alt;
+    
+    // Запрещаем скролл страницы
+    document.body.style.overflow = 'hidden';
+    
+    // Закрытие по Escape
+    document.addEventListener('keydown', handleEscape);
+}
+
+function closeImageModal() {
+    const modal = document.getElementById('imageModal');
+    modal.style.display = 'none';
+    
+    // Возвращаем скролл
+    document.body.style.overflow = 'auto';
+    
+    // Убираем обработчик Escape
+    document.removeEventListener('keydown', handleEscape);
+}
+
+function handleEscape(event) {
+    if (event.key === 'Escape') {
+        closeImageModal();
+    }
+}
+
+// Запрет контекстного меню для изображений
+document.addEventListener('contextmenu', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+        return false;
+    }
+});
+
+// Запрет перетаскивания изображений
+document.addEventListener('dragstart', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+        return false;
+    }
+});
+
 // ===== ОБРАБОТКА СКРОЛЛА ШАПКИ =====
 function initializeHeaderScroll() {
     const header = document.querySelector('.header');

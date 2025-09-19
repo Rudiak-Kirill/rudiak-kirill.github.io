@@ -531,7 +531,7 @@
                     
                     <div class="case-right-column">
                         <div class="case-image-container">
-                            <img src="assets/images/metrics-chart-placeholder.webp" alt="График роста трафика в Яндекс.Метрике" class="metrics-chart-full">
+                            <img src="assets/images/metrics-chart-placeholder.webp" alt="График роста трафика в Яндекс.Метрике" class="metrics-chart-full" onclick="openImageModal(this)" style="cursor: pointer;">
                         </div>
                         
                         <div class="case-description">
@@ -623,5 +623,14 @@
 
     <script src="assets/js/app.js"></script>
     <script src="assets/js/particle-bg.js"></script>
+    
+    <!-- Modal для увеличенного изображения -->
+    <div id="imageModal" class="image-modal" onclick="closeImageModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeImageModal()">&times;</span>
+            <img id="modalImage" src="" alt="" class="modal-image">
+            <p class="modal-caption">График роста трафика в Яндекс.Метрике</p>
+        </div>
+    </div>
 </body>
 </html>
