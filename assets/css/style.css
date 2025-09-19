@@ -958,7 +958,6 @@ a:hover {
     grid-template-columns: 1fr 2fr;
     gap: 4rem;
     align-items: start;
-    margin-bottom: 3rem;
 }
 
 .case-claims {
@@ -1019,6 +1018,12 @@ a:hover {
     color: white;
 }
 
+.case-right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
 .case-image-container {
     text-align: center;
 }
@@ -1040,8 +1045,6 @@ a:hover {
 }
 
 .case-description {
-    max-width: 900px;
-    margin: 0 auto;
     padding: 2rem;
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(20px);
@@ -1607,8 +1610,9 @@ a:hover {
         order: 2;
     }
     
-    .case-image-container {
+    .case-right-column {
         order: 1;
+        gap: 1.5rem;
     }
     
     .claim-item {
