@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeMobileMenu();
     initializePackageSelection();
     initializeFormSubmission();
+    initializeHeaderScroll();
+    initializeActiveMenu();
 });
 
 // ===== FAQ АККОРДЕОН =====
@@ -546,6 +548,45 @@ document.addEventListener('submit', (e) => {
         });
     }
 });
+
+// ===== ОБРАБОТКА СКРОЛЛА ШАПКИ =====
+function initializeHeaderScroll() {
+    const header = document.querySelector('.header');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+}
+
+// ===== АКТИВНОЕ МЕНЮ =====
+function initializeActiveMenu() {
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    const sections = document.querySelectorAll('section[id]');
+    
+    window.addEventListener('scroll', () => {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (window.scrollY >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+}
 
 // ===== ПРОВЕРКА ПРОИЗВОДИТЕЛЬНОСТИ =====
 if ('performance' in window) {
