@@ -943,6 +943,118 @@ a:hover {
     border-bottom: none;
 }
 
+/* ===== CASE SECTION ===== */
+.case {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 50%, #e2e8f0 100%);
+}
+
+.case-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.case-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.case-result {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(45, 55, 72, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.result-item {
+    text-align: center;
+    flex: 1;
+}
+
+.result-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #2d3748;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.result-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #4a5568;
+    margin-bottom: 0.25rem;
+}
+
+.result-period {
+    display: block;
+    font-size: 0.8rem;
+    color: #6b7280;
+    font-style: italic;
+}
+
+.result-arrow {
+    font-size: 2rem;
+    color: #3b82f6;
+    font-weight: bold;
+}
+
+.case-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.case-features li {
+    padding: 0.5rem 0;
+    color: #4a5568;
+    font-size: 1rem;
+}
+
+.case-note {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(107, 114, 128, 0.05);
+    border-radius: 8px;
+    border-left: 3px solid #9ca3af;
+}
+
+.case-note em {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.case-image {
+    text-align: center;
+}
+
+.metrics-chart {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(45, 55, 72, 0.1);
+    background: white;
+    padding: 1rem;
+}
+
+.image-caption {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #6b7280;
+    font-style: italic;
+}
+
 /* ===== CASES SECTION ===== */
 .cases {
     padding: 100px 0;
@@ -1478,6 +1590,20 @@ a:hover {
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+    
+    .case-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .case-result {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .result-arrow {
+        transform: rotate(90deg);
     }
     
     .footer-content {
