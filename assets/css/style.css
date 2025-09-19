@@ -424,22 +424,24 @@ a:hover {
     position: absolute;
     left: -120px;
     top: 10px;
-    background: #007cba;
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
     color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
+    padding: 10px 20px;
+    border-radius: 25px;
     font-size: 0.9rem;
     font-weight: 600;
     white-space: nowrap;
     min-width: 100px;
     text-align: center;
     z-index: 10;
+    box-shadow: 0 4px 12px rgba(45, 55, 72, 0.2);
 }
 
 .experience-content h3 {
-    color: #007cba;
+    color: #2d3748;
     margin-bottom: 0.5rem;
     font-size: 1.3rem;
+    font-weight: 700;
 }
 
 .experience-content h4 {
@@ -458,7 +460,7 @@ a:hover {
 /* ===== SKILLS SECTION ===== */
 .skills {
     padding: 80px 0;
-    background: white;
+    background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
 }
 
 .skills-grid {
@@ -469,21 +471,38 @@ a:hover {
 }
 
 .skill-category {
-    background: #f8f9fa;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
     padding: 2rem;
-    border-radius: 15px;
-    border-left: 4px solid #007cba;
-    transition: transform 0.3s ease;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(45, 55, 72, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
 }
 
 .skill-category:hover {
     transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(45, 55, 72, 0.15);
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .skill-category h3 {
-    color: #007cba;
+    color: #2d3748;
     margin-bottom: 1.5rem;
     font-size: 1.3rem;
+    font-weight: 700;
 }
 
 .skill-items {
@@ -493,27 +512,29 @@ a:hover {
 }
 
 .skill-item {
-    background: white;
-    color: #333;
+    background: rgba(255, 255, 255, 0.9);
+    color: #4a5568;
     padding: 8px 16px;
-    border-radius: 20px;
+    border-radius: 25px;
     font-size: 0.9rem;
     font-weight: 500;
-    border: 2px solid #e9ecef;
+    border: 1px solid rgba(45, 55, 72, 0.1);
     transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(45, 55, 72, 0.05);
 }
 
 .skill-item:hover {
-    background: #007cba;
+    background: #2d3748;
     color: white;
-    border-color: #007cba;
+    border-color: #2d3748;
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45, 55, 72, 0.2);
 }
 
 /* ===== PRICING SECTION ===== */
 .pricing {
     padding: 100px 0;
-    background: #f8f9fa;
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
 }
 
 .pricing h2 {
@@ -541,27 +562,30 @@ a:hover {
 }
 
 .pricing-card {
-    background: white;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
     padding: 2.5rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(45, 55, 72, 0.1);
     text-align: center;
     transition: all 0.3s ease;
     position: relative;
-    border: 2px solid transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
 .pricing-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(45, 55, 72, 0.15);
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .pricing-card.featured {
-    border-color: #007cba;
-    transform: scale(1.05);
+    border-color: #2d3748;
+    transform: scale(1.02);
+    background: rgba(255, 255, 255, 0.95);
 }
 
 .pricing-card.featured:hover {
@@ -863,10 +887,12 @@ a:hover {
 }
 
 .contact-form {
-    background: white;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
     padding: 2.5rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(45, 55, 72, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .form-row {

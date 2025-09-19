@@ -185,10 +185,10 @@ class ParticleBackground {
             const opacity = Math.max(0, this.config.particleOpacity - distanceToMouse / 300);
             
             if (opacity > 0) {
-                this.ctx.beginPath();
-                this.ctx.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
-                this.ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
-                this.ctx.fill();
+                        this.ctx.beginPath();
+                        this.ctx.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
+                        this.ctx.fillStyle = `rgba(45, 55, 72, ${opacity * 0.3})`;
+                        this.ctx.fill();
             }
         });
     }
@@ -206,7 +206,7 @@ class ParticleBackground {
                         this.ctx.beginPath();
                         this.ctx.moveTo(this.points[i].x, this.points[i].y);
                         this.ctx.lineTo(this.points[j].x, this.points[j].y);
-                        this.ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
+                        this.ctx.strokeStyle = `rgba(45, 55, 72, ${opacity * 0.2})`;
                         this.ctx.lineWidth = 1;
                         this.ctx.stroke();
                     }
@@ -225,7 +225,7 @@ class ParticleBackground {
                     this.ctx.beginPath();
                     this.ctx.moveTo(point.x, point.y);
                     this.ctx.lineTo(this.target.x, this.target.y);
-                    this.ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
+                    this.ctx.strokeStyle = `rgba(45, 55, 72, ${opacity * 0.3})`;
                     this.ctx.lineWidth = 0.5;
                     this.ctx.stroke();
                 }
