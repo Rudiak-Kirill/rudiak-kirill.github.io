@@ -10,11 +10,11 @@ class ParticleBackground {
         
         // Оптимизированные настройки для SEO-сайта
         this.config = {
-            particleCount: 50, // Меньше частиц для лучшей производительности
+            particleCount: 80, // Больше частиц для лучшей видимости
             connectionDistance: 120,
-            particleRadius: 2,
-            lineOpacity: 0.15,
-            particleOpacity: 0.4,
+            particleRadius: 3,
+            lineOpacity: 0.4,
+            particleOpacity: 0.7,
             animationSpeed: 0.02
         };
         
@@ -38,32 +38,12 @@ class ParticleBackground {
     }
     
     createCanvas() {
-        // Создаем canvas элемент
-        this.canvas = document.createElement('canvas');
-        this.canvas.id = 'particle-canvas';
-        this.canvas.style.cssText = `
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-            opacity: 0.6;
-        `;
+        // Используем существующий canvas элемент
+        this.canvas = document.getElementById('particle-canvas');
         
-        // Вставляем canvas в hero секцию
-        const hero = document.querySelector('.hero');
-        if (hero) {
-            hero.style.position = 'relative';
-            hero.insertBefore(this.canvas, hero.firstChild);
-            
-            // Обновляем z-index контента
-            const heroContent = hero.querySelector('.hero-content');
-            if (heroContent) {
-                heroContent.style.position = 'relative';
-                heroContent.style.zIndex = '2';
-            }
+        if (!this.canvas) {
+            console.warn('Canvas element not found');
+            return;
         }
         
         this.resizeCanvas();
@@ -187,7 +167,7 @@ class ParticleBackground {
             if (opacity > 0) {
                         this.ctx.beginPath();
                         this.ctx.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
-                        this.ctx.fillStyle = `rgba(45, 55, 72, ${opacity * 0.3})`;
+                        this.ctx.fillStyle = `rgba(45, 55, 72, ${opacity * 0.7})`;
                         this.ctx.fill();
             }
         });
@@ -206,7 +186,7 @@ class ParticleBackground {
                         this.ctx.beginPath();
                         this.ctx.moveTo(this.points[i].x, this.points[i].y);
                         this.ctx.lineTo(this.points[j].x, this.points[j].y);
-                        this.ctx.strokeStyle = `rgba(45, 55, 72, ${opacity * 0.2})`;
+                        this.ctx.strokeStyle = `rgba(45, 55, 72, ${opacity * 0.4})`;
                         this.ctx.lineWidth = 1;
                         this.ctx.stroke();
                     }
@@ -225,8 +205,8 @@ class ParticleBackground {
                     this.ctx.beginPath();
                     this.ctx.moveTo(point.x, point.y);
                     this.ctx.lineTo(this.target.x, this.target.y);
-                    this.ctx.strokeStyle = `rgba(45, 55, 72, ${opacity * 0.3})`;
-                    this.ctx.lineWidth = 0.5;
+                    this.ctx.strokeStyle = `rgba(45, 55, 72, ${opacity * 0.5})`;
+                    this.ctx.lineWidth = 1;
                     this.ctx.stroke();
                 }
             }
