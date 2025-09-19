@@ -289,7 +289,7 @@ a:hover {
     margin-left: calc(-50vw + 50%);
 }
 
-/* Particle canvas positioning */
+/* Particle Canvas */
 #particle-canvas {
     position: absolute;
     top: 0;
@@ -298,7 +298,6 @@ a:hover {
     height: 100%;
     z-index: 1;
     pointer-events: none;
-    opacity: 0.6;
 }
 
 .hero-content {
