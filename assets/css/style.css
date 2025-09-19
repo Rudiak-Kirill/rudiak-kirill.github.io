@@ -278,8 +278,8 @@ a:hover {
 .hero {
     background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 50%, #e2e8f0 100%);
     color: #2d3748;
-    padding: 140px 0 100px;
-    margin-top: 80px;
+    padding: 60px 0 80px;
+    margin-top: 20px;
     position: relative;
     overflow: hidden;
     min-height: 100vh;
