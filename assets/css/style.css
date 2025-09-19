@@ -642,16 +642,14 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    background: transparent;
     border-radius: 12px;
     margin-bottom: 1rem;
-    color: #4a5568;
     transition: all 0.3s ease;
 }
 
 .tool-item:hover .tool-icon {
-    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
-    color: white;
+    transform: scale(1.1);
 }
 
 .tool-name {
