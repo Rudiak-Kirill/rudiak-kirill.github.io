@@ -1029,6 +1029,22 @@ a:hover {
     border-bottom: none;
 }
 
+/* ===== CODE BLOCKS ===== */
+.code-block {
+    background: #0f172a;
+    color: #e2e8f0;
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    font-family: "Consolas", "SFMono-Regular", "Menlo", monospace;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    overflow-x: auto;
+    border: 1px solid rgba(226, 232, 240, 0.12);
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+}
+
 /* ===== CASE SECTION ===== */
 .case {
     padding: 100px 0;

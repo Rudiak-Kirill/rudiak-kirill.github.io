@@ -50,6 +50,7 @@
 
             <div class="nav-menu">
                 <a href="#for">Для кого</a>
+                <a href="#diff">Пример</a>
                 <a href="#problems">Проблемы</a>
                 <a href="#how">Как работает</a>
                 <a href="#deliverables">Что вы получаете</a>
@@ -79,11 +80,11 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Поисковик может видеть ваш сайт иначе, чем пользователи</h1>
-                <p class="hero-description">SRG находит bot/SSR/hydration mismatches в React/SPA/Next и даёт отчёт для разработчиков</p>
+                <h1>Поисковик может индексировать НЕ тот HTML, который видит пользователь</h1>
+                <p class="hero-description">React / SSR / Prerender / Edge-rendering проекты часто отдают разный контент боту и браузеру. SRG фиксирует расхождения и даёт доказательства.</p>
 
                 <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary" data-ym-goal="srg_check_site_click">Проверить сайт</a>
+                    <a href="#contact" class="btn btn-primary" data-ym-goal="srg_check_site_click">Проверить 5 URL</a>
                     <a href="https://t.me/RUDYAK_KIRILL" class="btn btn-secondary" target="_blank" data-ym-goal="srg_telegram_click">Написать в Telegram</a>
                 </div>
 
@@ -108,13 +109,33 @@
                     <div>
                         <h3>Критичные риски</h3>
                         <ul class="detailed-features">
-                            <li>Индексация видит пустой/урезанный контент</li>
-                            <li>Разные мета/каноникал/структура</li>
-                            <li>SSR таймауты и fallback</li>
-                            <li>Гидрация меняет DOM после загрузки</li>
+                            <li>Бот получает fallback вместо контента</li>
+                            <li>Canonical меняется после гидрации</li>
+                            <li>Рендер &gt; 5 секунд → пустой контейнер</li>
+                            <li>DOM меняется после загрузки</li>
                         </ul>
                     </div>
-                    <a href="#contact" class="btn btn-primary" data-ym-goal="srg_check_site_click">Проверить сайт</a>
+                    <a href="#contact" class="btn btn-primary" data-ym-goal="srg_check_site_click">Проверить 5 URL</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="diff" class="cases">
+        <div class="container">
+            <h2>Пример расхождения</h2>
+            <p class="section-subtitle">Минимальный diff показывает, почему индексация проседает</p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Googlebot</h3>
+                    <pre class="code-block">&lt;h1&gt;Товар А&lt;/h1&gt;
+&lt;p&gt;В наличии&lt;/p&gt;</pre>
+                </div>
+                <div class="pricing-card">
+                    <h3>Chrome</h3>
+                    <pre class="code-block">&lt;h1&gt;Loading...&lt;/h1&gt;
+&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</pre>
                 </div>
             </div>
         </div>
@@ -154,14 +175,14 @@
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <ul class="detailed-features">
-                        <li>Бот видит урезанный/пустой контент</li>
-                        <li>Разные meta/h1/canonical</li>
-                        <li>Не отдаются ссылки/перелинковка</li>
+                        <li>Бот получает fallback вместо контента</li>
+                        <li>Canonical меняется после гидрации</li>
+                        <li>Ссылки не попадают в HTML snapshot</li>
                     </ul>
                 </div>
                 <div class="pricing-card">
                     <ul class="detailed-features">
-                        <li>Таймауты рендера, отдаётся fallback</li>
+                        <li>Рендер &gt; 5 секунд → пустой контейнер</li>
                         <li>Гидрация меняет DOM после загрузки</li>
                         <li>Флаппинг: контент меняется от запроса к запросу</li>
                     </ul>
@@ -230,13 +251,13 @@
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <div>
-                        <div class="package-badge">Pilot</div>
-                        <h3>Быстрый</h3>
-                        <div class="price">фиксировано</div>
-                        <div class="duration">1–2 дня</div>
-                        <p class="package-description">5 URL, ключевые риски, отчёт и задачи.</p>
+                        <div class="package-badge">Пилот</div>
+                        <h3>5 URL</h3>
+                        <div class="price">фиксированная цена</div>
+                        <div class="duration">2 дня</div>
+                        <p class="package-description">Ключевые риски, отчёт и задачи.</p>
                     </div>
-                    <a href="#contact" class="btn btn-primary" data-ym-goal="srg_check_site_click">Проверить сайт</a>
+                    <a href="#contact" class="btn btn-primary" data-ym-goal="srg_check_site_click">Проверить 5 URL</a>
                 </div>
                 <div class="pricing-card featured">
                     <div class="badge">Основной</div>
@@ -247,7 +268,7 @@
                         <div class="duration">3–5 дней</div>
                         <p class="package-description">20 URL, серия прогонов, приоритеты и рекомендации.</p>
                     </div>
-                    <a href="#contact" class="btn btn-primary" data-ym-goal="srg_check_site_click">Проверить сайт</a>
+                    <a href="#contact" class="btn btn-primary" data-ym-goal="srg_check_site_click">Проверить 5 URL</a>
                 </div>
                 <div class="pricing-card">
                     <div>
@@ -260,6 +281,8 @@
                     <a href="#contact" class="btn btn-secondary" data-ym-goal="srg_demo_report_click">Оставить заявку</a>
                 </div>
             </div>
+
+            <p class="section-subtitle">Если SRG не находит критичных расхождений — вы ничего не платите.</p>
         </div>
     </section>
 
