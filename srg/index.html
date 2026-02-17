@@ -1,0 +1,423 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="yandex-verification" content="d0b7baa7f6f0362e" />
+    <meta name="google-site-verification" content="bYHOait0yXWkwL8_4e7Ji4lQ0K9L4YyCek_x5Gc5jSU" />
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104213719', 'ym');
+
+        ym(104213719, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/104213719" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    <title>SRG / SSR Guard — Bot vs Browser mismatch detector</title>
+    <meta name="description" content="SRG сравнивает HTML бота и браузера, находит SSR/hydration mismatches, фиксирует нестабильность и даёт отчёт с приоритетами для разработчиков.">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/favicon.svg">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://forms.yandex.ru/_static/embed.js"></script>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SRG / SSR Guard — Bot vs Browser mismatch detector">
+    <meta property="og:description" content="SRG сравнивает HTML бота и браузера, находит SSR/hydration mismatches и отдаёт отчёт с приоритетами для dev-команды.">
+    <meta property="og:url" content="https://rudiak-kirill.github.io/srg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SRG / SSR Guard — Bot vs Browser mismatch detector">
+    <meta name="twitter:description" content="HTML diff, снимки для бота/браузера, приоритеты для разработчиков.">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="/" class="brand-link">
+                <div class="brand-logo">РК</div>
+                <span class="brand-text">Кирилл Рудяк — SEO/MarTech</span>
+            </a>
+
+            <div class="nav-menu">
+                <a href="#for">Для кого</a>
+                <a href="#problems">Проблемы</a>
+                <a href="#how">Как работает</a>
+                <a href="#deliverables">Что вы получаете</a>
+                <a href="#pricing">Пакеты</a>
+                <a href="#trust">Доверие</a>
+                <a href="#contact">Контакт</a>
+                <a href="#faq">FAQ</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="https://t.me/RUDYAK_KIRILL" class="contact-link" title="Telegram" target="_blank" data-ym-goal="srg_telegram_click">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                    </svg>
+                </a>
+                <a href="#contact" class="btn btn-primary btn-small" data-ym-goal="srg_check_site_click">Проверить сайт</a>
+            </div>
+
+            <div class="nav-mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Поисковик может видеть ваш сайт иначе, чем пользователи</h1>
+                <p class="hero-description">SRG находит bot/SSR/hydration mismatches в React/SPA/Next и даёт отчёт для разработчиков</p>
+
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary" data-ym-goal="srg_check_site_click">Проверить сайт</a>
+                    <a href="https://t.me/RUDYAK_KIRILL" class="btn btn-secondary" target="_blank" data-ym-goal="srg_telegram_click">Написать в Telegram</a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">HTML diff</span>
+                        <span class="stat-label">бот vs браузер</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">Снимки</span>
+                        <span class="stat-label">HTML и скриншоты</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">План</span>
+                        <span class="stat-label">готовые задачи</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="pricing-card">
+                    <div>
+                        <h3>Критичные риски</h3>
+                        <ul class="detailed-features">
+                            <li>Индексация видит пустой/урезанный контент</li>
+                            <li>Разные мета/каноникал/структура</li>
+                            <li>SSR таймауты и fallback</li>
+                            <li>Гидрация меняет DOM после загрузки</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="btn btn-primary" data-ym-goal="srg_check_site_click">Проверить сайт</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="for" class="pricing">
+        <div class="container">
+            <h2>Для кого</h2>
+            <p class="section-subtitle">Команды, где визуально всё ок, но SEO/индексация проседает</p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>React/SPA/Next</h3>
+                    <p>Проекты с клиентским рендером, SSR или гидрацией.</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>SaaS, маркетплейсы, агрегаторы</h3>
+                    <p>Сложные интерфейсы, большое число шаблонов.</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>Prerender/SSR/Edge</h3>
+                    <p>Потоки рендера, кеши, разные пути отдачи HTML.</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>Tech SEO и Dev команды</h3>
+                    <p>Нужны доказательства и список задач с приоритетами.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="problems" class="cases">
+        <div class="container">
+            <h2>Какие проблемы ловим</h2>
+            <p class="section-subtitle">Короткий список типовых несоответствий</p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <ul class="detailed-features">
+                        <li>Бот видит урезанный/пустой контент</li>
+                        <li>Разные meta/h1/canonical</li>
+                        <li>Не отдаются ссылки/перелинковка</li>
+                    </ul>
+                </div>
+                <div class="pricing-card">
+                    <ul class="detailed-features">
+                        <li>Таймауты рендера, отдаётся fallback</li>
+                        <li>Гидрация меняет DOM после загрузки</li>
+                        <li>Флаппинг: контент меняется от запроса к запросу</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how" class="pricing">
+        <div class="container">
+            <h2>Как работает SRG</h2>
+            <p class="section-subtitle">4 шага от URL до отчёта</p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>1. Входные данные</h3>
+                    <p>Вы даёте 5–20 URL и user-agents (по умолчанию Googlebot/YandexBot + Chrome).</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>2. Прогоны</h3>
+                    <p>SRG делает серию прогонов с разными условиями рендера.</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>3. Diff и риски</h3>
+                    <p>Строится diff, отмечаются риск-зоны и нестабильность.</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>4. Отчёт</h3>
+                    <p>Вы получаете отчёт и короткий созвон с приоритетами.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="deliverables" class="cases">
+        <div class="container">
+            <h2>Что вы получаете</h2>
+            <p class="section-subtitle">Доказательства + задачи для dev-команды</p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <ul class="detailed-features">
+                        <li>Отчёт: список проблем + доказательства</li>
+                        <li>Diff HTML (бот vs браузер)</li>
+                        <li>Снимки HTML/скриншоты</li>
+                        <li>Приоритеты: критично/важно/норм</li>
+                    </ul>
+                </div>
+                <div class="pricing-card">
+                    <ul class="detailed-features">
+                        <li>Список задач для dev команды</li>
+                        <li>Рекомендации по SSR/prerender/caching</li>
+                        <li>Опционально: повторная проверка после фикса</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary" data-ym-goal="srg_demo_report_click">Получить демо-отчёт</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2>Пакеты</h2>
+            <p class="section-subtitle">Без лишней бюрократии, фокус на рисках и фиксе</p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div>
+                        <div class="package-badge">Pilot</div>
+                        <h3>Быстрый</h3>
+                        <div class="price">фиксировано</div>
+                        <div class="duration">1–2 дня</div>
+                        <p class="package-description">5 URL, ключевые риски, отчёт и задачи.</p>
+                    </div>
+                    <a href="#contact" class="btn btn-primary" data-ym-goal="srg_check_site_click">Проверить сайт</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="badge">Основной</div>
+                    <div>
+                        <div class="package-badge">Standard</div>
+                        <h3>Полный</h3>
+                        <div class="price">от 35 000 ₽</div>
+                        <div class="duration">3–5 дней</div>
+                        <p class="package-description">20 URL, серия прогонов, приоритеты и рекомендации.</p>
+                    </div>
+                    <a href="#contact" class="btn btn-primary" data-ym-goal="srg_check_site_click">Проверить сайт</a>
+                </div>
+                <div class="pricing-card">
+                    <div>
+                        <div class="package-badge">Continuous</div>
+                        <h3>Мониторинг</h3>
+                        <div class="price">early access</div>
+                        <div class="duration">1 раз/день или 1 раз/неделю</div>
+                        <p class="package-description">Сбор заявок на мониторинг нестабильности.</p>
+                    </div>
+                    <a href="#contact" class="btn btn-secondary" data-ym-goal="srg_demo_report_click">Оставить заявку</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="trust" class="cases">
+        <div class="container">
+            <h2>Доверие</h2>
+            <p class="section-subtitle">Коротко и по делу</p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Опыт 10+ лет</h3>
+                    <p>Работаю с SEO и тех. оптимизацией, специализация: React/SSR риски.</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>Кейсы без цифр</h3>
+                    <p>Покажу примеры диффов и нестабильности (без раскрытия данных).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Заявка на SRG</h2>
+            <p class="section-subtitle">Коротко: URL, технология, контакт</p>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Быстрый контакт</h3>
+                    <div class="contact-item">
+                        <strong>Telegram:</strong>
+                        <a href="https://t.me/RUDYAK_KIRILL" target="_blank" data-ym-goal="srg_telegram_click">@RUDYAK_KIRILL</a>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Email:</strong>
+                        <a href="mailto:rudyak.kirill@gmail.com">rudyak.kirill@gmail.com</a>
+                    </div>
+                    <p>Опиши URL и стек. Если нужно — пришлю демо-отчёт.</p>
+                    <a href="#contact" class="btn btn-primary" data-ym-goal="srg_check_site_click">Проверить сайт</a>
+                </div>
+
+                <div class="yandex-form-container">
+                    <iframe src="https://forms.yandex.ru/u/68cd3e25d0468854a03567ee?iframe=1"
+                            frameborder="0"
+                            name="ya-form-68cd3e25d0468854a03567ee"
+                            width="100%"
+                            height="100%">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2>FAQ</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Это влияет на SEO?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Да. Если бот видит другой HTML, это влияет на индексацию и понимание контента.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Нужно ли давать доступы?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Нет. Достаточно списка URL и выбранных user-agents.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Сколько URL нужно?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Для пилота достаточно 5–20 URL.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Чем отличается от Screaming Frog?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>SF краулит, но не сравнивает рендер бота и браузера и не фиксирует гидрацию.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Что если проблема плавающая?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Делаем несколько прогонов и фиксируем нестабильность.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>SRG / SSR Guard</h3>
+                    <p>Bot vs Browser mismatch detector для React/SSR</p>
+                </div>
+
+                <div class="footer-menu">
+                    <h4>Навигация</h4>
+                    <ul>
+                        <li><a href="#for">Для кого</a></li>
+                        <li><a href="#problems">Проблемы</a></li>
+                        <li><a href="#how">Как работает</a></li>
+                        <li><a href="#pricing">Пакеты</a></li>
+                        <li><a href="#contact">Контакт</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-social">
+                    <h4>Связь</h4>
+                    <div class="social-links">
+                        <a href="mailto:rudyak.kirill@gmail.com" class="social-link" title="Email">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </a>
+                        <a href="https://t.me/RUDYAK_KIRILL" class="social-link" title="Telegram" target="_blank" data-ym-goal="srg_telegram_click">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 <a href="mailto:rudyak.kirill@gmail.com">Кирилл Рудяк</a> — SRG / SSR Guard.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/app.js"></script>
+
+    <script>
+        document.addEventListener('click', function (e) {
+            var target = e.target.closest('[data-ym-goal]');
+            if (!target) return;
+            if (typeof ym === 'undefined') return;
+            ym(104213719, 'reachGoal', target.getAttribute('data-ym-goal'));
+        });
+    </script>
+</body>
+</html>
